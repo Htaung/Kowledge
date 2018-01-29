@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+	  .info-window {
+    font-family: 'Montserrat', sans-serif;
+}
+.info-content {
+    color: #999;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="map_canvas"></div>
+    <div id="photos"></div>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+    <script src="../../kdTree.js"></script>
+    <script src="../jquery-1.7.2.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+    <script src="data1.json"></script>
+
+    <script>
+      var map, tree;
+//      var numMarkers = 30;
+		var numMarkers = 5;
+      var markers = [];
+      var bounds = {
+        south: -179,
+        west: -88,
+        north: 179,
+        east: 88
+      }
+
+      function initialize() {
+        map = new google.maps.Map(document.getElementById('map_canvas'),{
+          zoom: 15,
+		  //"1.311","y":"103.8265"
+          //center: new google.maps.LatLng(51.164181, 10.454150),
+		  //center: new google.maps.LatLng(1.311, 103.8265),
+		  //center: new google.maps.LatLng(1.38889, 103.99056),
+		  center: new google.maps.LatLng(1.317266, 103.882947),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        buildPhotoTree();
+      }
+
+      function distance(a, b) {
+        var lat1 = a.latitude,
+        lon1 = a.longitude,
+        lat2 = b.latitude,
+        lon2 = b.longitude;
+        var rad = Math.PI/180;
+
+        var dLat = (lat2-lat1)*rad;
+        var dLon = (lon2-lon1)*rad;
+        var lat1 = lat1*rad;
+        var lat2 = lat2*rad;
+
+        var x = Math.sin(dLat/2);
+        var y = Math.sin(dLon/2);
+
+        var a = x*x + y*y * Math.cos(lat1) * Math.cos(lat2); 
+        return Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      }
+
+      function buildPhotoTree() {
+        for(var i=0;i<numMarkers; i++) {
+          markers[i] = new google.maps.Marker({map: map});
+        }
+
+		var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          parking: {
+            icon: iconBase + 'parking_lot_maps.png'
+          },
+          library: {
+            icon: iconBase + 'library_maps.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+		
+		var test = 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png';
+		//test = "test.jpg";
+		
+        tree = new kdTree(photos, distance, ["latitude", "longitude"]);
+       // google.maps.event.addListener(map, 'mousemove', function(e){
+          //var point = {latitude: e.latLng.lat(), longitude: e.latLng.lng()};
+//		  console.log('near by point' + JSON.stringify(point));
+		  var point = {latitude: 1.38889, longitude: 103.99056};
+          var nearest = tree.nearest(point, numMarkers);
+          for(var i=0; i<numMarkers; i++) {
+		  
+		  
+			
+            var photo = nearest[i][0];
+			console.log('near by point' + photo.latitude + 'longitude==>' + photo.longitude);
+            markers[i].setPosition(new google.maps.LatLng(photo.latitude, photo.longitude));
+            markers[i].setTitle(photo.title);
+			markers[i].setIcon(test);
+			//markers[i].setAnimation(google.maps.Animation.DROP);
+			
+			
+		var contentString = '<div class="info-window">' +
+                '<h3>Info Window Content</h3>' +
+                '<div class="info-content">' +
+                '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>' +
+                '</div>' +
+                '</div>';
+
+			var infowindow = new google.maps.InfoWindow({
+				content: contentString,
+				maxWidth: 400
+			});
+
+			markers[i].addListener('click', function () {
+				infowindow.open(map, markers[i]);
+			});
+	
+
+    
+			
+			/*markers[i] = new google.maps.Marker({
+			position: new google.maps.LatLng(photo.latitude, photo.longitude),
+			icon: test,
+			title: photo.title,
+			map: map
+			});*/
+          }
+        //});
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,13 @@
+https://www.udemy.com/react-basic-in-just-1-hour/learn/v4/t/lecture/5194026?start=0
+
+
+var a = document.getElementsByTagName('react-video-player');
+a[0].getAttribute('videojs-setup-data');
+
+
+var a = document.getElementsByTagName('react-video-player')[0].getAttribute('videojs-setup-data');
+var b = a.substring(a.indexOf('src'));
+b.slice(6,b.indexOf('type')-3);
+var curl = b.slice(6,b.indexOf('type')-3);
+curl = curl.replace("\\u0026","&");
+window.open(curl);
