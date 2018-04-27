@@ -2,7 +2,7 @@
 
 
 Time complexity-of-algorithm or program
-=> Time Complexity တြက္ရင္ Big O Notation သုံး
+=> Time omplexity တြက္ရင္ Big O Notation သုံး
 Big O Notation မွာ ==> constant factor ေတြကို Remove လုပ္ျပီး 
 Running Time  Time Time ကို N ေပါ္မွာ မူတည္ျပီး Estima te 
 
