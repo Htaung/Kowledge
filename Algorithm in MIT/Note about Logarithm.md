@@ -1,4 +1,5 @@
-<h1>copy from http://www.mclph.umn.edu/mathrefresh/logs.html</h1>
+<h1>Source</h1>
+<h2>http://www.mclph.umn.edu/mathrefresh/logs.html</h2>
 
 <ul>
 <li>Ratios and Proportions</li>
