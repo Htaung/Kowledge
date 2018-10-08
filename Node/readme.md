@@ -56,8 +56,9 @@ integrates with many template engines
 contains a middleware framework	
 </p>
 
-
+<pre>
 Responding to request
 GET ==> app.get('route', fn)
 POST ==> app.post('route', fn)
 DELETE ==> app.delete('route', fn)
+</pre>
