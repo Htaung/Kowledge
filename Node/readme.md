@@ -26,15 +26,15 @@ increase performance
 
 <h4> installing express==> </h4>
 <p>
-<blockquotes>npm install express</blockquotes>
+<code>npm install express</code>
 to installed in the module that we created in our web app
 go to that diretory and then type
-<blockquotes>
+<code>
 npm init // that will create basic folder structure for web 
 nmp install express -save // that -save option will add dependencies in package.json
-</blockquotes>
+</code>
 if we add dependencies in package.json after that type in cmd 
-<blockquotes>npm install </blockquotes>
+<code>npm install </code>
 it will install all dependencies required in our app
 </p>
 
@@ -45,7 +45,7 @@ it will install all dependencies required in our app
 npm install -g nodemon
 nodemon app.js 
 </code>
-<pre>
+</pre>
 
 <h3>Express</h3>
 <p>
