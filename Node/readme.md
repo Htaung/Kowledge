@@ -24,17 +24,19 @@ increase performance
 </p>
 
 
-<h4> installing express==> </h4>
-<p>
+<h4> Installing express </h4>
 <code>npm install express</code>
+<p>
 to installed in the module that we created in our web app
 go to that diretory and then type
+<pre>
 <code>
 npm init // that will create basic folder structure for web 
 nmp install express -save // that -save option will add dependencies in package.json
 </code>
+</pre>
 if we add dependencies in package.json after that type in cmd 
-<code>npm install </code>
+<pre><code>npm install </code></pre>
 it will install all dependencies required in our app
 </p>
 
