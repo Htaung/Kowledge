@@ -40,10 +40,12 @@ it will install all dependencies required in our app
 
 
 <h4>install nodemon ==> monitoring the changes of file realtime without having server to restart</h4>
-<blockquotes>
+<pre>
+<code>
 npm install -g nodemon
 nodemon app.js 
-<blockquotes>
+</code>
+<pre>
 
 <h3>Express</h3>
 <p>
