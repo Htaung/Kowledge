@@ -10,7 +10,7 @@ https://ilovecoding.org/courses/nodejs
 <h1>downloaded at 35 </h1>
 https://www.youtube.com/watch?v=L4OP8JGKbQU&index=35&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
 
-<h4>Learning end at here</h4>
+<h4>Learning end at 27</h4>
 https://www.youtube.com/watch?v=9TSBKO59u0Y
 
 
@@ -65,4 +65,23 @@ Responding to request
 GET ==> app.get('route', fn)
 POST ==> app.post('route', fn)
 DELETE ==> app.delete('route', fn)
+</pre>
+
+
+<h4> Installing Template Engine View Engine </h4>
+<p> like viewResolver in java tileViewResolver 
+<pre>
+<code>
+npm install ejs -save
+
+
+var express = require('express');
+
+var app = express();
+
+//set view engine like view resolver in spring tileViewResolver, 
+app.set('view engine', 'ejs');
+//by default template will look into /views folder
+
+</code>
 </pre>
