@@ -11,6 +11,7 @@ https://ilovecoding.org/courses/nodejs
 https://www.youtube.com/watch?v=L4OP8JGKbQU&index=35&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
 
 <h4>Learning end at 27</h4>
+<h4>Learning end at 30 need to write the node for middleware and static resources</h4> 
 https://www.youtube.com/watch?v=9TSBKO59u0Y
 
 
@@ -85,3 +86,6 @@ app.set('view engine', 'ejs');
 
 </code>
 </pre>
+
+
+<h4> Installing static </h4>
