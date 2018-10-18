@@ -18,4 +18,9 @@ server or even several servers.
 
 Alt+ shift + F Source formatting in windows
 
+
+Comment in EJS
+<% /* %>
+
+<% */ %>
 Page No.17
