@@ -89,3 +89,22 @@ app.set('view engine', 'ejs');
 
 
 <h4> Installing static </h4>
+
+
+Do not let your CDN betray you: Use Subresource Integrity
+https://hacks.mozilla.org/2015/09/subresource-integrity-in-firefox-43/
+
+https://www.srihash.org/
+
+
+
+<h4> Intall Mongo db </h4>
+Create mlab account for mongo db it will give you free access with 0.5 gb free with cloud storage
+https://mlab.com/home?newDatabase=1
+
+mongoosejs.com ==> object modelling tool 
+
+
+
+<h1> Learning socket.io in express</h1>
+https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js
